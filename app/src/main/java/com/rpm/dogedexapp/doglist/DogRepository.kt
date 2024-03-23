@@ -1,6 +1,6 @@
 package com.rpm.dogedexapp.doglist
 
-import com.rpm.dogedexapp.Dog
+import com.rpm.dogedexapp.model.Dog
 import com.rpm.dogedexapp.api.ApiResponseStatus
 import com.rpm.dogedexapp.api.DogsAPI.retrofitService
 import com.rpm.dogedexapp.api.dto.DogDTOMapper

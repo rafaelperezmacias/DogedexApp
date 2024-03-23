@@ -1,6 +1,6 @@
 package com.rpm.dogedexapp.api.dto
 
-import com.rpm.dogedexapp.Dog
+import com.rpm.dogedexapp.model.Dog
 
 class DogDTOMapper {
 

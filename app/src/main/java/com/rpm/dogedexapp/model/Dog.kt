@@ -1,4 +1,4 @@
-package com.rpm.dogedexapp
+package com.rpm.dogedexapp.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
