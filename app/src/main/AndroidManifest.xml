@@ -2,7 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -15,9 +20,12 @@
         android:theme="@style/Theme.DogedexApp"
         tools:targetApi="31">
         <activity
-            android:name=".settings.SettingsActivity"
-            android:parentActivityName=".MainActivity"
+            android:name=".WholeImageActivity"
             android:exported="false" />
+        <activity
+            android:name=".settings.SettingsActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".auth.LoginActivity"
             android:exported="false" />
@@ -26,8 +34,8 @@
             android:exported="false" />
         <activity
             android:name=".doglist.DogListActivity"
-            android:parentActivityName=".MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
