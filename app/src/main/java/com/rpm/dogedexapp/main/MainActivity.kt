@@ -3,11 +3,6 @@ package com.rpm.dogedexapp.main
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.ImageFormat
-import android.graphics.Rect
-import android.graphics.YuvImage
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -20,10 +15,10 @@ import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
-import androidx.camera.core.ImageProxy
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
+import coil.annotation.ExperimentalCoilApi
 import com.rpm.dogedexapp.LABEL_PATH
 import com.rpm.dogedexapp.MODEL_PATH
 import com.rpm.dogedexapp.R
@@ -31,7 +26,7 @@ import com.rpm.dogedexapp.api.ApiResponseStatus
 import com.rpm.dogedexapp.api.ApiServiceInterceptor
 import com.rpm.dogedexapp.auth.LoginActivity
 import com.rpm.dogedexapp.databinding.ActivityMainBinding
-import com.rpm.dogedexapp.dogdetail.DogDetailActivity
+import com.rpm.dogedexapp.dogdetail.DogDetailComposeActivity
 import com.rpm.dogedexapp.doglist.DogListActivity
 import com.rpm.dogedexapp.machinelearning.Classifier
 import com.rpm.dogedexapp.machinelearning.DogRecognition
@@ -39,7 +34,6 @@ import com.rpm.dogedexapp.model.Dog
 import com.rpm.dogedexapp.model.User
 import com.rpm.dogedexapp.settings.SettingsActivity
 import org.tensorflow.lite.support.common.FileUtil
-import java.io.ByteArrayOutputStream
 import java.io.File
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
@@ -67,11 +61,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var imageCapture: ImageCapture
     private lateinit var cameraExecutor: ExecutorService
-    private lateinit var classifier: Classifier
     private var isCameraReady = false
 
     private val mainViewModel: MainViewModel by viewModels()
 
+    @OptIn(ExperimentalCoilApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -122,10 +116,11 @@ class MainActivity : AppCompatActivity() {
         requestCameraPermission()
     }
 
+    @ExperimentalCoilApi
     private fun openDogDetailActivity(dog: Dog) {
-        val intent = Intent(this, DogDetailActivity::class.java)
-        intent.putExtra(DogDetailActivity.DOG_KEY, dog)
-        intent.putExtra(DogDetailActivity.IS_RECOGNITION_KEY, true)
+        val intent = Intent(this, DogDetailComposeActivity::class.java)
+        intent.putExtra(DogDetailComposeActivity.DOG_KEY, dog)
+        intent.putExtra(DogDetailComposeActivity.IS_RECOGNITION_KEY, true)
         startActivity(intent)
     }
 

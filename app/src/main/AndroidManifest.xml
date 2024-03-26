@@ -20,6 +20,11 @@
         android:theme="@style/Theme.DogedexApp"
         tools:targetApi="31">
         <activity
+            android:name=".dogdetail.DogDetailComposeActivity"
+            android:exported="false"
+            android:label="@string/title_activity_dog_detail_compose"
+            android:theme="@style/Theme.DogedexApp" />
+        <activity
             android:name=".WholeImageActivity"
             android:exported="false" />
         <activity

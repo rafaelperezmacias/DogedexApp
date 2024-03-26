@@ -7,10 +7,10 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
+import coil.annotation.ExperimentalCoilApi
 import com.rpm.dogedexapp.api.ApiResponseStatus
 import com.rpm.dogedexapp.databinding.ActivityDogListBinding
-import com.rpm.dogedexapp.dogdetail.DogDetailActivity
+import com.rpm.dogedexapp.dogdetail.DogDetailComposeActivity
 
 private const val GRID_SPAN_COUNT = 3
 
@@ -18,6 +18,7 @@ class DogListActivity : AppCompatActivity() {
 
     private val dogListViewModel: DogListViewModel by viewModels()
 
+    @ExperimentalCoilApi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityDogListBinding.inflate(layoutInflater)
@@ -27,8 +28,8 @@ class DogListActivity : AppCompatActivity() {
         recycler.layoutManager = GridLayoutManager(this, GRID_SPAN_COUNT)
         val adapter = DogAdapter()
         adapter.setOnItemClickListener { dog ->
-            val intent = Intent(this, DogDetailActivity::class.java)
-            intent.putExtra(DogDetailActivity.DOG_KEY, dog)
+            val intent = Intent(this, DogDetailComposeActivity::class.java)
+            intent.putExtra(DogDetailComposeActivity.DOG_KEY, dog)
             startActivity(intent)
         }
         recycler.adapter = adapter

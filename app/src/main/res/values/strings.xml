@@ -30,4 +30,5 @@
     <string name="this_is_a_content_description">This is a content description</string>
     <string name="logout">Logout</string>
     <string name="error_adding_dog">There was an error adding the dog</string>
+    <string name="title_activity_dog_detail_compose">DogDetailComposeActivity</string>
 </resources>
