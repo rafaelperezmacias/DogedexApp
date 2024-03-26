@@ -80,4 +80,17 @@ class DogRepository {
         }
     }
 
+    suspend fun getDogByMLId(mlDogId: String): ApiResponseStatus<Dog> {
+        return makeNetworkCall {
+            val response = retrofitService.getDogByMLId(mlDogId)
+
+            if ( !response.isSuccess ) {
+                throw Exception(response.message)
+            }
+
+            val dogDTOMapper = DogDTOMapper()
+            dogDTOMapper.fromDogDTOToDogDomain(response.data.dog)
+        }
+    }
+
 }

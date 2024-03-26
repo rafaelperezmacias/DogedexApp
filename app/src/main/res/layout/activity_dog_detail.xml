@@ -291,6 +291,7 @@
             android:indeterminateTint="@color/colorPrimaryDark"
             android:indeterminateTintMode="src_atop"
             android:visibility="gone" />
+
     </FrameLayout>
 
 </layout>

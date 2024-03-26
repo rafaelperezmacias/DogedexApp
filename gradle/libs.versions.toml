@@ -19,6 +19,8 @@ constraintlayout = "2.1.4"
 navigationUiKtx = "2.7.7"
 navigationFragmentKtx = "2.7.7"
 retrofit = "2.9.0"
+tensorflowLiteSupport = "0.1.0"
+tensorflowLite = "0.0.0.-nightly-SNAPSHOT"
 
 [libraries]
 androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activityKtx" }
@@ -42,6 +44,8 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit2-converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "converterMoshi" }
+tensorflow-lite-support = { module = "org.tensorflow:tensorflow-lite-support", version.ref = "tensorflowLiteSupport" }
+tensorflow-lite = { module = "org.tensorflow:tensorflow-lite", version.ref = "tensorflowLite" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

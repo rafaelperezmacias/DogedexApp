@@ -3,12 +3,11 @@ package com.rpm.dogedexapp.auth
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
-import com.rpm.dogedexapp.MainActivity
+import com.rpm.dogedexapp.main.MainActivity
 import com.rpm.dogedexapp.R
 import com.rpm.dogedexapp.api.ApiResponseStatus
 import com.rpm.dogedexapp.databinding.ActivityLoginBinding

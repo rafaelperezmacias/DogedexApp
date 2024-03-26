@@ -30,11 +30,6 @@ class DogAdapter : ListAdapter<Dog, DogAdapter.DogViewHolder>(DiffCallBack) {
         this.onItemClickListener = onItemClickListener
     }
 
-    private var onLongItemClickListener: ((Dog) -> Unit)? = null
-    fun setOnLongItemClickListener(onLongItemClickListener: (Dog) -> Unit) {
-        this.onLongItemClickListener = onLongItemClickListener
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DogViewHolder {
         return DogViewHolder(DogListItemBinding.inflate(LayoutInflater.from(parent.context)))
     }
@@ -55,7 +50,6 @@ class DogAdapter : ListAdapter<Dog, DogAdapter.DogViewHolder>(DiffCallBack) {
                         R.drawable.dog_list_item_background
                     )
                     binding.dogIndex.visibility = View.GONE
-
                     binding.dogListItemLayout.setOnClickListener {
                         onItemClickListener?.invoke(dog)
                     }
@@ -66,13 +60,9 @@ class DogAdapter : ListAdapter<Dog, DogAdapter.DogViewHolder>(DiffCallBack) {
                         binding.dogImage.context,
                         R.drawable.dog_list_item_null_background
                     )
+                    binding.dogListItemLayout.setOnClickListener(null)
                     binding.dogIndex.visibility = View.VISIBLE
                     binding.dogIndex.text = dog.index.toString()
-
-                    binding.dogListItemLayout.setOnLongClickListener {
-                        onLongItemClickListener?.invoke(dog)
-                        true
-                    }
                 }
 
             }

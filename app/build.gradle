@@ -59,6 +59,9 @@ dependencies {
     implementation libs.androidx.camera.camera2
     implementation libs.androidx.camera.lifecycle
     implementation libs.androidx.camera.view
+    // Tensorflow
+    implementation libs.tensorflow.lite
+    implementation libs.tensorflow.lite.support
     // Testing
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit

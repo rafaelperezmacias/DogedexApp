@@ -4,7 +4,7 @@ import com.rpm.dogedexapp.model.Dog
 
 class DogDTOMapper {
 
-    private fun fromDogDTOToDogDomain(dogDTO: DogDTO): Dog {
+    fun fromDogDTOToDogDomain(dogDTO: DogDTO): Dog {
         return Dog(
             dogDTO.id, dogDTO.index, dogDTO.name, dogDTO.type, dogDTO.heightFemale,
             dogDTO.heightMale, dogDTO.imageUrl, dogDTO.lifeExpectancy, dogDTO.temperament,
